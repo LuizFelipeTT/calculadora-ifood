@@ -1,6 +1,6 @@
 # Calculadora de Preços para iFood 🍔
 
-![Pré-visualização da Calculadora](https://i.imgur.com/G5Jd7vH.png)
+![Pré-visualização da Calculadora](https://imgur.com/aCevt6m.png)
 
 ## 📝 Descrição
 
