@@ -4,65 +4,78 @@
 
 ## 📝 Descrição
 
-Esta é uma calculadora de precificação desenvolvida em Python com a biblioteca **CustomTkinter**. O objetivo é ajudar donos de restaurantes e lanchonetes a calcular o preço de venda ideal para seus produtos na plataforma do iFood, levando em consideração todos os custos fixos, variáveis, comissões da plataforma e a margem de lucro desejada.
+Esta é uma calculadora de precificação para donos de restaurantes e lanchonetes. Ela ajuda a encontrar o preço de venda ideal para produtos no iFood, considerando todos os custos, taxas e o lucro desejado.
 
-A ferramenta foi criada para resolver um problema comum: as taxas do iFood incidem sobre o preço final de venda, o que exige um cálculo específico para garantir a lucratividade do negócio.
+A ferramenta foi desenvolvida em Python e possui uma interface gráfica simples e moderna.
+
+---
+
+## 🚀 Guia Rápido: Como Baixar e Usar
+
+Este guia foi feito para qualquer pessoa, mesmo sem conhecimento de programação. Siga os 4 passos abaixo.
+
+### Passo 1: Baixar os Arquivos do Projeto
+
+A forma mais fácil é baixar tudo de uma vez em um arquivo ZIP.
+
+1.  Nesta página do GitHub, clique no botão verde **`< > Code`**.
+2.  No menu que aparecer, clique em **`Download ZIP`**.
+
+![Como baixar o ZIP](https://i.imgur.com/qM1w4t1.png)
+
+3.  Após baixar, vá até a pasta onde o arquivo foi salvo (geralmente em "Downloads") e **descompacte o arquivo ZIP**. Você pode clicar com o botão direito sobre ele e escolher "Extrair tudo...".
+
+### Passo 2: Instalar o Python (Se você ainda não tiver)
+
+O programa precisa do Python para funcionar.
+
+1.  Acesse o site oficial do Python: **[python.org/downloads](https://www.python.org/downloads/)**
+2.  Baixe a versão mais recente e execute o instalador.
+3.  **IMPORTANTE:** Na primeira tela da instalação, marque a caixinha que diz **"Add Python to PATH"** ou **"Adicionar Python ao PATH"**. Isso é essencial!
+
+![Marcar a opção Add to PATH](https://i.imgur.com/fNf3YnA.png)
+
+### Passo 3: Instalar o Componente Visual da Calculadora
+
+Agora, vamos instalar o que a calculadora precisa para ter a aparência moderna.
+
+1.  Abra o **Prompt de Comando** do Windows. Você pode encontrá-lo pesquisando por `cmd` no Menu Iniciar.
+2.  Com o Prompt de Comando aberto, digite o comando abaixo e pressione Enter:
+    ```
+    pip install customtkinter
+    ```
+    *Aguarde a instalação terminar.*
+
+### Passo 4: Executar a Calculadora!
+
+Você está quase lá!
+
+1.  Volte para a pasta que você descompactou no **Passo 1**.
+2.  Dentro dela, você verá o arquivo `Calculadora.py` (ou apenas `Calculadora`).
+3.  **Para abrir a calculadora, basta dar um duplo clique nesse arquivo.**
+
+Pronto! A calculadora de preços irá abrir e você já pode começar a usar.
 
 ---
 
 ## ✨ Funcionalidades
 
--   **Interface Gráfica Intuitiva:** Interface limpa e moderna para fácil preenchimento dos dados.
--   **Cálculo Preciso:** Utiliza a fórmula correta de precificação, que considera os custos percentuais sobre o valor final.
--   **Todos os Custos Incluídos:** Permite inserir custos de ingredientes (CMV), embalagem, comissão do iFood, taxas de pagamento, custos operacionais, impostos e a margem de lucro.
--   **Formatação Automática:** Campos de valor monetário (R$) são formatados automaticamente.
--   **Tema Claro e Escuro:** Inclui um botão para alternar facilmente entre o modo claro e escuro, adaptando-se à sua preferência.
--   **Validação de Dados:** Evita erros de cálculo e informa o usuário caso algum campo seja preenchido incorretamente.
+- **Interface Gráfica Intuitiva:** Fácil de usar e preencher.
+- **Cálculo Preciso:** Usa a fórmula correta para garantir sua lucratividade.
+- **Tema Claro e Escuro:** Inclui um botão para alternar o visual.
+- **Validação de Dados:** Ajuda a evitar erros de digitação.
 
 ---
 
-## 🚀 Como Usar
+## 🖼️ Screenshots
 
-Para executar este projeto em sua máquina, siga os passos abaixo.
-
-### Pré-requisitos
-
--   [Python 3.8+](https://www.python.org/downloads/) instalado.
-
-### Instalação
-
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/LuizFelipeTT/calculadora-ifood.git](https://github.com/LuizFelipeTT/calculadora-ifood.git)
-    cd calculadora-ifood
-    ```
-
-2.  **Instale as dependências:**
-    A única dependência externa é o `customtkinter`. Instale-a usando o pip:
-    ```bash
-    pip install customtkinter
-    ```
-
-3.  **Execute a aplicação:**
-    ```bash
-    python Calculadora.py
-    ```
-
-
----
-
-## 🖼️ Screenshot
-
-### Tema Escuro
-![Calculadora em Tema Escuro](https://i.imgur.com/vH97N0K.png)
-
-### Tema Claro
-![Calculadora em Tema Claro](https://i.imgur.com/G5Jd7vH.png)
-
+| Tema Claro | Tema Escuro |
+| :---: | :---: |
+| ![Calculadora em Tema Claro](https://i.imgur.com/G5Jd7vH.png) | ![Calculadora em Tema Escuro](https://i.imgur.com/vH97N0K.png) |
 
 ---
 
 ## 👨‍💻 Autor
 
--   **LuizFelipeTT**
-    -   GitHub: [@LuizFelipeTT](https://github.com/LuizFelipeTT)
+- **LuizFelipeTT**
+  - GitHub: [@LuizFelipeTT](https://github.com/LuizFelipeTT)
