@@ -1,0 +1,121 @@
+import customtkinter
+import tkinter
+from tkinter import messagebox
+
+# --- Configurações Iniciais da Interface ---
+customtkinter.set_appearance_mode("Light") 
+customtkinter.set_default_color_theme("blue")
+
+class CalculadoraApp(customtkinter.CTk):
+    def __init__(self):
+        super().__init__()
+
+        self.title("Calculadora de Preços para iFood")
+        # --- MUDANÇA: Aumentei a altura final para 620 pixels ---
+        self.geometry("550x620") 
+        self.resizable(False, False)
+
+        self.theme_switch = customtkinter.CTkSwitch(
+            self, 
+            text="Tema Escuro", 
+            command=self.mudar_tema
+        )
+        self.theme_switch.place(x=410, y=20)
+
+        self.main_frame = customtkinter.CTkFrame(self, corner_radius=15)
+        self.main_frame.pack(pady=(50, 20), padx=20, fill="both", expand=True)
+        
+        self.main_frame.grid_columnconfigure(0, weight=1)
+        self.main_frame.grid_columnconfigure(1, weight=2)
+        
+        self.label_titulo = customtkinter.CTkLabel(self.main_frame, text="Preencha os Custos", font=("Roboto", 24, "bold"))
+        self.label_titulo.grid(row=0, column=0, columnspan=2, padx=20, pady=(10, 20))
+
+        self.entries = {}
+        campos = [
+            ("Custo dos Ingredientes (R$):", "cmv", "Ex: 19.55"),
+            ("Custo da Embalagem (R$):", "embalagem", "Ex: 1.56"),
+            ("Comissão iFood (%):", "ifood", "Ex: 23"),
+            ("Taxa de Pagamento Online (%):", "taxa_pagamento", "Ex: 3.5"),
+            ("Custo Operacional (%):", "custo_op", "Ex: 20"),
+            ("Impostos (%):", "impostos", "Ex: 6"),
+            ("Margem de Lucro Desejada (%):", "lucro", "Ex: 20")
+        ]
+
+        for i, (texto_label, nome_entry, placeholder) in enumerate(campos):
+            label = customtkinter.CTkLabel(self.main_frame, text=texto_label)
+            label.grid(row=i+1, column=0, padx=(20, 10), pady=10, sticky="w")
+            
+            entry = customtkinter.CTkEntry(self.main_frame, placeholder_text=placeholder)
+            entry.grid(row=i+1, column=1, padx=(0, 20), pady=10, sticky="ew")
+            
+            if "(R$)" in texto_label:
+                entry.bind("<FocusOut>", self.formatar_moeda)
+            
+            self.entries[nome_entry] = entry
+
+        self.botao_calcular = customtkinter.CTkButton(self.main_frame, text="Calcular Preço Final", font=("Roboto", 16, "bold"), command=self.calcular_preco)
+        self.botao_calcular.grid(row=len(campos)+1, column=0, columnspan=2, padx=20, pady=(15, 10), sticky="ew")
+
+        self.label_caixa_resultado = customtkinter.CTkLabel(self.main_frame, text="Preço de Venda Sugerido (R$):", font=("Roboto", 16, "bold"))
+        self.label_caixa_resultado.grid(row=len(campos)+2, column=0, columnspan=2, padx=20, pady=(15, 5))
+
+        self.entry_resultado = customtkinter.CTkEntry(self.main_frame, font=("Roboto", 24, "bold"), justify="center", border_color="#28a745", border_width=2)
+        self.entry_resultado.grid(row=len(campos)+3, column=0, columnspan=2, padx=20, pady=(0, 20), sticky="ew")
+        self.entry_resultado.configure(state="readonly")
+
+    def mudar_tema(self):
+        if self.theme_switch.get() == 1:
+            customtkinter.set_appearance_mode("Dark")
+        else:
+            customtkinter.set_appearance_mode("Light")
+
+    def formatar_moeda(self, event):
+        widget = event.widget
+        texto_atual = widget.get()
+        if not texto_atual: return
+        try:
+            valor_str = texto_atual.replace(',', '.').strip()
+            if '.' not in valor_str:
+                if len(valor_str) > 2: valor = float(valor_str[:-2] + "." + valor_str[-2:])
+                else: valor = float(valor_str)
+            else: valor = float(valor_str)
+            widget.delete(0, "end")
+            widget.insert(0, f"{valor:.2f}")
+        except (ValueError, IndexError): pass
+
+    def calcular_preco(self):
+        try:
+            valores = {}
+            for nome, widget in self.entries.items():
+                valor_str = widget.get().replace(',', '.').strip()
+                if not valor_str:
+                    messagebox.showerror("Erro de Entrada", f"O campo '{nome}' está vazio.")
+                    return
+                valores[nome] = float(valor_str)
+
+            custo_fixo_total = valores['cmv'] + valores['embalagem']
+            soma_percentuais = (valores['ifood'] + valores['taxa_pagamento'] + valores['custo_op'] + valores['impostos'] + valores['lucro']) / 100
+            
+            if soma_percentuais >= 1:
+                messagebox.showerror("Erro de Cálculo", "A soma dos percentuais não pode ser 100% ou mais!")
+                return
+
+            preco_venda = custo_fixo_total / (1 - soma_percentuais)
+            
+            resultado_formatado = f"{preco_venda:.2f}"
+            
+            self.entry_resultado.configure(state="normal")
+            self.entry_resultado.delete(0, "end")
+            self.entry_resultado.insert(0, resultado_formatado)
+            self.entry_resultado.configure(state="readonly")
+
+        except ValueError:
+            messagebox.showerror("Erro de Entrada", "Por favor, verifique se todos os campos contêm apenas números válidos.")
+        except Exception as e:
+            messagebox.showerror("Erro Inesperado", f"Ocorreu um erro: {e}")
+
+# --- Inicia a Aplicação ---
+if __name__ == "__main__":
+    app = CalculadoraApp()
+    app.mainloop()
