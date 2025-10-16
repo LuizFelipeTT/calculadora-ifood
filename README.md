@@ -21,7 +21,7 @@ A forma mais fácil é baixar tudo de uma vez em um arquivo ZIP.
 1.  Nesta página do GitHub, clique no botão verde **`< > Code`**.
 2.  No menu que aparecer, clique em **`Download ZIP`**.
 
-![Como baixar o ZIP](https://i.imgur.com/qM1w4t1.png)
+![Como baixar o ZIP](https://imgur.com/GWxlgEI)
 
 3.  Após baixar, vá até a pasta onde o arquivo foi salvo (geralmente em "Downloads") e **descompacte o arquivo ZIP**. Você pode clicar com o botão direito sobre ele e escolher "Extrair tudo...".
 
@@ -33,7 +33,7 @@ O programa precisa do Python para funcionar.
 2.  Baixe a versão mais recente e execute o instalador.
 3.  **IMPORTANTE:** Na primeira tela da instalação, marque a caixinha que diz **"Add Python to PATH"** ou **"Adicionar Python ao PATH"**. Isso é essencial!
 
-![Marcar a opção Add to PATH](https://i.imgur.com/fNf3YnA.png)
+![Marcar a opção Add to PATH](https://imgur.com/iMztYRm)
 
 ### Passo 3: Instalar o Componente Visual da Calculadora
 
@@ -71,7 +71,7 @@ Pronto! A calculadora de preços irá abrir e você já pode começar a usar.
 
 | Tema Claro | Tema Escuro |
 | :---: | :---: |
-| ![Calculadora em Tema Claro](https://i.imgur.com/G5Jd7vH.png) | ![Calculadora em Tema Escuro](https://i.imgur.com/vH97N0K.png) |
+| ![Calculadora em Tema Claro](https://imgur.com/t5T3ZCQ) | ![Calculadora em Tema Escuro](https://imgur.com/aCevt6m) |
 
 ---
 
